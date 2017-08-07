@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+
+    <title>Calculator of Daily Budget</title>
+  </head>
+
+
+  <body>
+       <!-- Main panel -->
+      <div class="wrapper clearfix">
+        <p id="title">Daily Budget Calculator</p>
+
+          <!-- Left block -->
+          <div class="left-block">
+
+            <!-- Income -->
+            <div class="incoming">
+                <p class="title-incoming">Incoming</p>
+                Qty1 : <input onblur="findTotal()" type="text" name="qty" id="qty1"/><br>
+                Qty2 : <input onblur="findTotal()" type="text" name="qty" id="qty2"/><br>
+                Qty3 : <input onblur="findTotal()" type="text" name="qty" id="qty3"/><br>
+                Qty4 : <input onblur="findTotal()" type="text" name="qty" id="qty4"/><br>
+                Qty5 : <input onblur="findTotal()" type="text" name="qty" id="qty5"/><br>
+                Qty6 : <input onblur="findTotal()" type="text" name="qty" id="qty6"/><br>
+                Qty7 : <input onblur="findTotal()" type="text" name="qty" id="qty7"/><br>
+                Qty8 : <input onblur="findTotal()" type="text" name="qty" id="qty8"/><br>
+                <br><br>
+                Total : <input type="text" name="total" id="total"/>
+            </div>
+
+
+            <!-- Mandatory Costs -->
+            <div class="monthly-expenses">
+              <p class="title-incoming">Monthly Expenses</p>
+              Qty1 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty1"/><br>
+              Qty2 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty2"/><br>
+              Qty3 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty3"/><br>
+              Qty4 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty4"/><br>
+              Qty5 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty5"/><br>
+              Qty6 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty6"/><br>
+              Qty7 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty7"/><br>
+              Qty8 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty8"/><br>
+              <br><br>
+              Total : <input type="text" name="total_month_exp" id="total_month_exp"/>
+            </div>
+
+          </div>
+
+
+          <!-- Right block -->
+          <div class="right-block">
+
+            <!-- Daily budget window -->
+            <div class="daily-budget">
+
+            </div>
+
+          </div>
+
+      </div>
+
+      <script src="app.js"></script>
+  </body>
+</html>
