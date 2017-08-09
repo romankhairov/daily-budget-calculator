@@ -36,8 +36,31 @@ function addInput(divName){
      }
      else {
           var newdiv = document.createElement('div');
-          newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+          newdiv.innerHTML =
+          "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+          // <div id="edit" contenteditable="true">
+          //   "Entry" + (counter + 1) +
+          // </div><br><input type="text" name="myInputs[]">
+
           document.getElementById(divName).appendChild(newdiv);
           counter++;
      }
+}
+
+//4)save my edits
+function saveEdits() {
+//get the editable element
+var editElem = document.getElementById("edit");
+//get the edited element content
+var userVersion = editElem.innerHTML;
+//save the content to local storage
+localStorage.userEdits = userVersion;
+//write a confirmation to the user
+document.getElementById("update").innerHTML="Edits saved!";
+}
+function checkEdits() {
+
+//find out if the user has previously saved edits
+  if(localStorage.userEdits!=null)
+  document.getElementById("edit").innerHTML = localStorage.userEdits;
 }
