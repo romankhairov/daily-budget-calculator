@@ -21,14 +21,13 @@
             <!-- Income -->
             <div class="incoming">
                 <p class="title-incoming">Incoming</p>
-                Qty1 : <input onblur="findTotal()" type="text" name="qty" id="qty1"/><br>
-                Qty2 : <input onblur="findTotal()" type="text" name="qty" id="qty2"/><br>
-                Qty3 : <input onblur="findTotal()" type="text" name="qty" id="qty3"/><br>
-                Qty4 : <input onblur="findTotal()" type="text" name="qty" id="qty4"/><br>
-                Qty5 : <input onblur="findTotal()" type="text" name="qty" id="qty5"/><br>
-                Qty6 : <input onblur="findTotal()" type="text" name="qty" id="qty6"/><br>
-                Qty7 : <input onblur="findTotal()" type="text" name="qty" id="qty7"/><br>
-                Qty8 : <input onblur="findTotal()" type="text" name="qty" id="qty8"/><br>
+                <!-- Qty1 : <input onblur="findTotal()" placeholder="Example: Salary" type="text" name="qty" id="qty1"/><br> -->
+                <form method="POST">
+                     <div id="dynamicInput">
+                          Entry 1<br><input type="text" name="myInputs[]">
+                     </div>
+                     <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+                </form>
                 <br><br>
                 Total : <input type="text" name="total" id="total"/>
             </div>
@@ -37,8 +36,8 @@
             <!-- Mandatory Costs -->
             <div class="monthly-expenses">
               <p class="title-incoming">Monthly Expenses</p>
-              Qty1 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty1"/><br>
-              Qty2 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty2"/><br>
+              Qty1 : <input onblur="findTotalMonthExp()" placeholder="Example: Rent of house" type="text" name="month_exp" id="qty1"/><br>
+              Qty2 : <input onblur="findTotalMonthExp()" placeholder="Example: Transport" type="text" name="month_exp" id="qty2"/><br>
               Qty3 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty3"/><br>
               Qty4 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty4"/><br>
               Qty5 : <input onblur="findTotalMonthExp()" type="text" name="month_exp" id="qty5"/><br>
