@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+
+}
+
+body {
+  background-color: #29292f;
+}
+
+/* .cover {
+  margin: 50px;
+  padding: 15px;
+  background-color: rgb(203, 201, 222);
+  border-radius: 5px;
+  } */
+
+.box  {
+  padding: 20px;
+  background: grey;
+  margin: 5px;
+}
+
+.header {
+  grid-area:header;
+  text-align: center;
+  background: #29292f;
+  color: #c2c2c2;
+}
+
+.input {
+  grid-area:input;
+}
+
+.output {
+  grid-area:output;
+}
+
+.statistics {
+  grid-area:statistics;
+}
+
+.footer {
+  grid-area:footer;
+  text-align: center;
+  background: #282828;
+  color: #29292f;
+}
+
+.container {
+  display:grid;
+  grid-template-areas: "header header header"
+                       "input output statistics"
+                       "footer footer footer";
+  grid-template-columns: 0.4fr 0.4fr 0.2fr;
+  grid-template-rows: 100px 1fr 100px;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+      grid-template-areas: "header"
+                           "input"
+                            "output"
+                            "statistics"
+                            "footer";
+      grid-template-columns: 100%;
+      grid-template-rows: 100px 0.5fr 0.5fr 100px 100px;
+    }
+}
+
+/*  ******************** Input module *************************************/
+
+.input_module {
+  background-color: #b3b3b3;
+  margin: 50px;
+  padding: 20px;
+}

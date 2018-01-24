@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="style.css">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calculator of Daily Budget</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="resources/css/style.css">
+
+</head>
 
 
-    <title>Calculator of Daily Budget</title>
-  </head>
+<body>
+  <div class="cover">
+
+    <!-- Main panel -->
+    <div class="container">
+
+      <!-- Header -->
+      <header class="header box">
+        <h1>Daily Budget Calculator</h1>
+      </header>
+      <!-- Header End-->
+
+      <!-- Input Block -->
+      <aside class="input box">
+        <p>Input</p>
+
+        <html>
+        <head>
+        <script type="text/javascript" src="table_script.js"></script>
+        </head>
+        <body>
+        <div id="wrapper">
+        <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+        <tr>
+        <th>Source</th>
+        <th>Info</th>
+        <th>Amount</th>
+        </tr>
+
+        <tr id="row1">
+        <td id="name_row1">Salary</td>
+        <td id="country_row1"></td>
+        <td id="age_row1">1000</td>
+        <td>
+        <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+        <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+        <input type="button" value="Delete" class="delete" onclick="delete_row('1')">
+        </td>
+        </tr>    
+
+        <tr>
+        <td><input type="text" id="new_name"></td>
+        <td><input type="text" id="new_country"></td>
+        <td><input type="text" id="new_age"></td>
+        <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+        </tr>
+
+        </table>
+        </div>
+
+        </body>
+        </html>
 
 
-  <body>
-       <!-- Main panel -->
-      <div class="wrapper clearfix">
-        <p id="title">Daily Budget Calculator</p>
+        <!-- Input Block End-->
 
-          <!-- Left block -->
-          <div class="left-block">
+      </aside>
+      <!-- Input Block End -->
 
-            <!-- Income -->
-            <div class="incoming">
-                <p class="title-incoming">Incoming</p>
-                <!-- Qty1 : <input onblur="findTotal()" placeholder="Example: Salary" type="text" name="qty" id="qty1"/><br> -->
-                  <form method="POST">
-                       <div id="dynamicInput">
-                          <div id="edit" contenteditable="true">
-                            Entry1
-                          </div><br><input type="text" name="myInputs[]">
-                       </div>
-                       <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
-                  </form>
-                <br><br>
-                Total : <br><input type="text" name="total" id="total"/>
-            </div>
-            <div class="save-button">
-              <input type="button" value="save my edits" onclick="saveEdits()"/>
-                <div id="update"> - Edit the text and click to save for next time</div>
-              <body onload="checkEdits()">
-            </div>
+      <!-- Output Block -->
+      <main class="output box">Output</main>
+      <!-- Output Block End -->
+
+      <!-- Statistics  -->
+      <aside class="statistics box">Statistics</aside>
+      <!-- Statistics End -->
+
+      <!-- Footer -->
+      <footer class="footer box">Footer</footer>
+      <!-- Footer End-->
+
+    </div>
+    <!-- Main panel End-->
+
+  </div>
 
 
+  <script src="resources/js/app.js"></script>
+</body>
 
-
-            <!-- Mandatory Costs -->
-            <div class="monthly-expenses">
-              <p class="title-incoming">Monthly Expenses</p>
-              <!-- Qty1 : <input onblur="findTotalMonthExp()" placeholder="Example: Rent of house" type="text" name="month_exp" id="qty1"/><br> -->
-
-              <br><br>
-              Total : <input type="text" name="total_month_exp" id="total_month_exp"/>
-            </div>
-
-          </div>
-
-
-          <!-- Right block -->
-          <div class="right-block">
-
-            <!-- Daily budget window -->
-            <div class="daily-budget">
-
-            </div>
-
-          </div>
-
-      </div>
-
-      <script src="app.js"></script>
-  </body>
 </html>
