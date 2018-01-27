@@ -13,7 +13,7 @@ function edit_row(no)
 
  source.innerHTML="<input type='text' id='source_text"+no+"' value='"+source_data+"'>";
  info.innerHTML="<input type='text' id='info_text"+no+"' value='"+info_data+"'>";
- amount.innerHTML="<input type='text' id='amount_text"+no+"' value='"+amount_data+"'>";
+ amount.innerHTML="<input type='number' id='amount_text"+no+"' value='"+amount_data+"'>";
 }
 
 function save_row(no)
