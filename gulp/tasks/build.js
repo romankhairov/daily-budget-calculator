@@ -11,13 +11,13 @@ gulp.task('previewDist', function() {
   browserSync.init({
     notify: false,
     server: {
-      baseDir: "docs"
+      baseDir: "."
     }
   });
 });
 
 gulp.task('deleteDistFolder', function() {
-  return del("./docs");
+  return del(".");
 });
 
 gulp.task('forOtherFiles', ['deleteDistFolder'], function() {
