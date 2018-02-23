@@ -1,0 +1,45 @@
+.container {
+  &-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+    @mixin atMedium {
+      justify-content: space-evenly;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    &--list {
+      margin: 0;
+      @mixin atMedium {
+        margin: 1em 1em;
+      }
+    }
+  }
+
+  &-about {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+    @mixin atMedium {
+      justify-content: space-evenly;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .generic-content-container {
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.1;
+
+      @mixin atMedium {
+      line-height: 1.6;
+      }
+    }
+  }
+}

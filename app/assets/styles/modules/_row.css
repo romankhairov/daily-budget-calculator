@@ -1,0 +1,122 @@
+.row__link {
+  font-family: 'Roboto', sans-serif;
+  color: #324085;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+row > p {
+  text-size: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.row {
+
+  display: flex;
+  flex-direction: column;
+
+@mixin atMedium {
+  flex-direction: row;
+}
+
+  @mixin clearfix;
+
+  &--gutters > div {
+    box-sizing: border-box;
+  }
+
+  &__left {
+    flex-direction: column;
+    width: 500px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+
+    @mixin atMedium {
+    padding-left: 25%;
+    text-align: left;
+    padding-left: 10%;
+    }
+
+    @mixin atLarge {
+    padding-left: 25%;
+    width: 70%;
+    }
+  }
+
+  &__right--wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+
+    li {
+      margin-bottom: 10px;
+      font-size: 2rem;
+
+      @mixin atMedium {
+        font-size: 1.3rem;
+        margin: 3px;
+      }
+
+      li:hover {
+        color: $mainBlue;
+      }
+
+    }
+
+    @mixin atMedium {
+    flex-direction: column;
+    width: 30%;
+    text-align: right;
+
+    }
+
+
+}
+
+
+  &--links {
+    margin-top: 10px;
+  }
+
+  &--icons {
+    margin: .5rem;
+    font-size: 1.35em;
+    text-align: left;
+
+    a:hover {
+    color: $mainBlue;
+}
+
+    @mixin atMedium {
+    margin: .4rem;
+    font-size: 1.5rem;
+    }
+
+    @mixin atLarge {
+    font-size: 1.5rem;
+    }
+
+}
+
+  &--column {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 0 1em;
+    margin-left: auto;
+    margin-right: auto;
+
+    @mixin atMedium {
+      padding: 0 4em;
+    }
+  }
+}
+
+.row__4--wrapper {
+  padding: 0.5em;
+  text-align: center;
+}

@@ -1,0 +1,79 @@
+.btn {
+  background-color: $mainBlue;
+  color: $mainWhite;
+  text-decoration: none;
+  padding: .8rem 4.6rem;
+  display: inline-block;
+  margin-top: 2em;
+  font-weight: 100;
+  border-radius: .3rem;
+
+      @mixin atSmall {
+        font-size: 1rem;
+      padding: .8rem 2.3rem;
+      margin-top: 2em;
+      }
+
+      @mixin atMedium {
+        font-size: 1rem;
+      padding: .8rem 2.3rem;
+      margin-top: 3em;
+      }
+
+      @mixin atLarge {
+        font-size: 1rem;
+      padding: .8rem 2.3rem;
+      margin-top: 3em;
+      }
+
+&--header {
+  background-color: $mainGrey;
+  margin: 0;
+  padding: .5rem 1.6rem;
+}
+
+&--on-top {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+&--on-top:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+  &--footer {
+    margin: 0;
+    background-color: $mainBlue;
+    color: $mainWhite;
+    text-decoration: none;
+    padding: .8rem 2rem;
+    display: inline-block;
+    font-weight: 300;
+  }
+
+  &--small {
+    text-decoration: none;
+    padding: .6rem 1.8rem;
+    display: inline-block;
+    margin-top: 1em;
+    font-weight: 300;
+    border-radius: .3rem;
+  }
+
+  &--modal {
+    font-size: 1.3rem;
+    padding: .5rem 2rem;
+    margin-right: 5px;
+  }
+}

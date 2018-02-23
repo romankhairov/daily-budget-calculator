@@ -1,0 +1,9 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $darkBlue;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
