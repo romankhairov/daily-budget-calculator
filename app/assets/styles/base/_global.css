@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: $darkGrey;
+  background-color: $mainWhite;
 }
 
 img {
