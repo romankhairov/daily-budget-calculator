@@ -47,17 +47,6 @@ h2 {
         transition: transform 0.3s;
     }
 
-    &__percentage {
-        float: left;
-        margin-left: 20px;
-        transition: transform 0.3s;
-        font-size: 11px;
-        background-color: #FFDAD9;
-        padding: 3px;
-        border-radius: 3px;
-        width: 32px;
-        text-align: center;
-    }
 }
 
 .income .item__value,
@@ -70,3 +59,37 @@ h2 {
 .expenses .item__delete--btn {
     color: $mainRed;
 }
+
+.item {
+
+  &__delete {
+      float: left;
+  }
+
+  &__delete--btn {
+      font-size: 22px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      display: none;
+  }
+
+  &__delete--btn:focus { outline: none; }
+  &__delete--btn:active { transform: translateY(2px); }
+
+  &:hover .item__delete--btn { display: block; }
+  &:hover .item__value { transform: translateX(-20px); }
+  &:hover .item__percentage { transform: translateX(-20px); }
+
+}
+
+.unpaid {
+    background-color: #FFDAD9 !important;
+    cursor: pointer;
+    color: $mainRed;
+}
+
+.unpaid:hover .item__description { font-weight: 900; }
