@@ -1,7 +1,72 @@
 .list {
   width: 100%;
-  height: 300px;
   background-color: $mainWhite;
   font-weight: 300;
   font-size: 1.2rem;
+}
+
+.container {
+    width: 1000px;
+    margin: 60px auto;
+}
+
+.income {
+    float: left;
+    width: 475px;
+    margin-right: 50px;
+}
+
+.expenses {
+    float: left;
+    width: 475px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.icome__title { color: $mainGreen; }
+.expenses__title { color: $mainRed; }
+
+.item {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+
+    &:first-child { border-top: 1px solid #e7e7e7; }
+    &:nth-child(even) { background-color: #f7f7f7; }
+
+    &__description {
+        float: left;
+    }
+
+    &__value {
+        float: left;
+        transition: transform 0.3s;
+    }
+
+    &__percentage {
+        float: left;
+        margin-left: 20px;
+        transition: transform 0.3s;
+        font-size: 11px;
+        background-color: #FFDAD9;
+        padding: 3px;
+        border-radius: 3px;
+        width: 32px;
+        text-align: center;
+    }
+}
+
+.income .item__value,
+.income .item__delete--btn {
+    color: $mainGreen;
+}
+
+.expenses .item__value,
+.expenses .item__percentage,
+.expenses .item__delete--btn {
+    color: $mainRed;
 }
