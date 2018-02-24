@@ -2,9 +2,16 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $darkGrey;
   background-color: $mainWhite;
+  height: 100vh;
+  font-weight: 300;
+  position: relative;
+  font-size: 1rem;
 }
 
-img {
+.right { float: right; }
+.red { color: $mainRed !important; }
+.red-focus:focus { border: 1px solid $mainRed !important; }
+/* img {
   max-width: 100%;
   height: auto;
-}
+} */
