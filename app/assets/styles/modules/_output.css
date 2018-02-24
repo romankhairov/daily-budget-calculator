@@ -38,10 +38,52 @@
       }
   }
 
-  .budget__income,
-  .budget__expenses {
-      padding: 12px;
+  &__income,
+  &__expenses {
+      padding: 1rem;
       text-transform: uppercase;
+  }
+
+  &__income {
+      margin-bottom: 10px;
+      /* border: 3px solid $mainGreen; */
+  }
+
+  &__expenses {
+      /* border: 3px solid $mainRed; */
+  }
+
+  &__income--text,
+  &__expenses--text {
+      float: left;
+      font-size: 1rem;
+      margin-top: 2px;
+  }
+
+  &__income--text,
+  &__income--value {
+  color: $mainGreen;
+  }
+
+  &__expenses--text,
+  &__expenses--value{
+  color: $mainRed;
+  }
+
+  &__income--value,
+  &__expenses--value {
+      letter-spacing: 1px;
+      float: left;
+  }
+
+
+  &__income--percentage,
+  &__expenses--percentage {
+      float: left;
+      width: 34px;
+      font-size: 11px;
+      padding: 3px 0;
+      margin-left: 10px;
   }
 
 }

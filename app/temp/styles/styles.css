@@ -522,10 +522,51 @@ body {
         font-size: 2.9rem;
       }
 
-.budget .budget__income,
-  .budget .budget__expenses {
-      padding: 12px;
+.budget__income,
+  .budget__expenses {
+      padding: 1rem;
       text-transform: uppercase;
+  }
+
+.budget__income {
+      margin-bottom: 10px;
+      /* border: 3px solid $mainGreen; */
+  }
+
+.budget__expenses {
+      /* border: 3px solid $mainRed; */
+  }
+
+.budget__income--text,
+  .budget__expenses--text {
+      float: left;
+      font-size: 1rem;
+      margin-top: 2px;
+  }
+
+.budget__income--text,
+  .budget__income--value {
+  color: #24bf9f;
+  }
+
+.budget__expenses--text,
+  .budget__expenses--value{
+  color: #f85a59;
+  }
+
+.budget__income--value,
+  .budget__expenses--value {
+      letter-spacing: 1px;
+      float: left;
+  }
+
+.budget__income--percentage,
+  .budget__expenses--percentage {
+      float: left;
+      width: 34px;
+      font-size: 11px;
+      padding: 3px 0;
+      margin-left: 10px;
   }
 
 .input {
