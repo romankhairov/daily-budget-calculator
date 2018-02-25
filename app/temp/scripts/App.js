@@ -70,47 +70,33 @@
 "use strict";
 
 
-var _BudgetController = __webpack_require__(1);
+// BUDGET CONTROLLER-----------------------------------------------------------    BUDGET CONTROLLER    ---------------------------------------------------------------------
+var budgetController = function () {
 
-var _BudgetController2 = _interopRequireDefault(_BudgetController);
+  // Some code
 
-var _UIController = __webpack_require__(2);
+}();
 
-var _UIController2 = _interopRequireDefault(_UIController);
+// UI CONTROLLER---------------------------------------------------------------    UI CONTROLLER    ---------------------------------------------------------------------
+var uiController = function () {
 
-var _Controller = __webpack_require__(3);
+  // Some code
 
-var _Controller2 = _interopRequireDefault(_Controller);
+}();
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+// GLOBAL APP CONTROLLER-------------------------------------------------------    GLOBAL APP CONTROLLER    ---------------------------------------------------------------------
+var controller = function (budgetController, uiController) {
 
+  document.querySelector('.add__btn').addEventListener('click', function () {
 
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+    // 1. Get the filed input data
+    // 2. Add the item to the budget controller
+    // 3. Add the item to the UI
+    // 4. Calculate the budget
+    // 5. Display the budget on the UI
 
-"use strict";
-
-
-console.log("Hello from BudgetController!");
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-console.log("Hello from UIController!");
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-console.log("Hello from Controller!");
+  });
+}(budgetController, uiController);
 
 /***/ })
 /******/ ]);
