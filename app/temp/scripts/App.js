@@ -65,85 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-// BUDGET CONTROLLER-----------------------------------------------------------    BUDGET CONTROLLER    ---------------------------------------------------------------------
-var budgetController = function () {
-
-  // Some code
-
-}();
-
-// UI CONTROLLER---------------------------------------------------------------    UI CONTROLLER    ---------------------------------------------------------------------
-var UIController = function () {
-
-  var DOMstrings = {
-    inputType: '.add__type',
-    inputDescription: '.add__description',
-    inputValue: '.add__value',
-    inputBtn: '.add__btn'
-  };
-
-  return {
-    getInput: function getInput() {
-      return {
-        type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
-        description: document.querySelector(DOMstrings.inputDescription).value,
-        value: document.querySelector(DOMstrings.inputValue).value
-      };
-    },
-
-    getDOMstrings: function getDOMstrings() {
-      return DOMstrings;
-    }
-  };
-}();
-
-// GLOBAL APP CONTROLLER-------------------------------------------------------    GLOBAL APP CONTROLLER    ---------------------------------------------------------------------
-var controller = function (budgetController, UIController) {
-
-  var setupEventListeners = function setupEventListeners() {
-    var DOM = UIController.getDOMstrings();
-
-    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
-
-    document.addEventListener('keypress', function (e) {
-
-      if (event.keyCode === 13 || event.which === 13) {
-        ctrlAddItem();
-      }
-    });
-  };
-
-  var DOM = UIController.getDOMstrings();
-
-  var ctrlAddItem = function ctrlAddItem() {
-
-    // 1. Get the filed input data
-    var input = UIController.getInput();
-    console.log(input);
-
-    // 2. Add the item to the budget controller
-
-    // 3. Add the item to the UI
-
-    // 4. Calculate the budget
-
-    // 5. Display the budget on the UI
-  };
-
-  return {
-    init: function init() {
-      console.log('Aplication has started');
-      setupEventListeners();
-    }
-  };
-}(budgetController, UIController);
-
-controller.init();
+throw new Error("Module build failed: SyntaxError: C:/Users/Roman Khairov/Documents/GitHub/daily_budget_calculator/app/assets/scripts/App.js: Unexpected token, expected , (23:4)\n\n  21 |       inc: []\n  22 |     }\n> 23 |     totals: {\n     |     ^\n  24 |       exp: 0,\n  25 |       inc: 0\n  26 |     }\n");
 
 /***/ })
 /******/ ]);
