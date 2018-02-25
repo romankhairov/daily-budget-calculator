@@ -452,7 +452,7 @@ template {
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #282e3c;
+  color: #212b40;
   background-color: #fef8ec;
   height: 100vh;
   font-weight: 300;
@@ -477,7 +477,7 @@ body {
 .output {
   width: 100%;
   height: 400px;
-  background-color: #282e3c;
+  background-color: #212b40;
   color: #fef8ec;
   font-weight: 300;
   font-size: 1.2rem;
@@ -557,8 +557,8 @@ body {
 
 .input {
   width: 100%;
-  height: 15vh;
-  background-color: #565962;
+  height: 115px;
+  background-color: #56637e;
 }
 
 .add {
