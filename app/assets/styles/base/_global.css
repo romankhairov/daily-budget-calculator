@@ -11,7 +11,3 @@ body {
 .right { float: right; }
 .red { color: $mainRed !important; }
 .red-focus:focus { border: 1px solid $mainRed !important; }
-/* img {
-  max-width: 100%;
-  height: auto;
-} */
