@@ -104,6 +104,20 @@ var UIController = function () {
 
 // GLOBAL APP CONTROLLER-------------------------------------------------------    GLOBAL APP CONTROLLER    ---------------------------------------------------------------------
 var controller = function (budgetController, UIController) {
+
+  var setupEventListeners = function setupEventListeners() {
+    var DOM = UIController.getDOMstrings();
+
+    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+
+    document.addEventListener('keypress', function (e) {
+
+      if (event.keyCode === 13 || event.which === 13) {
+        ctrlAddItem();
+      }
+    });
+  };
+
   var DOM = UIController.getDOMstrings();
 
   var ctrlAddItem = function ctrlAddItem() {
@@ -121,15 +135,15 @@ var controller = function (budgetController, UIController) {
     // 5. Display the budget on the UI
   };
 
-  document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
-
-  document.addEventListener('keypress', function (e) {
-
-    if (event.keyCode === 13 || event.which === 13) {
-      ctrlAddItem();
+  return {
+    init: function init() {
+      console.log('Aplication has started');
+      setupEventListeners();
     }
-  });
+  };
 }(budgetController, UIController);
+
+controller.init();
 
 /***/ })
 /******/ ]);
