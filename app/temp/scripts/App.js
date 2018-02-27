@@ -93,6 +93,12 @@ var budgetController = function () {
         data.totals[type] = sum;
     };
 
+    // var calculateDailyBudget = function(budget) {
+    //   var daily = 0;
+    //   daily = data.budget / 30;
+    // }
+
+
     var data = {
         allItems: {
             exp: [],
@@ -167,7 +173,11 @@ var UIController = function () {
         inputValue: '.add__value',
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
-        expensesContainer: '.expenses__list'
+        expensesContainer: '.expenses__list',
+        avialableBudgetLabel: '.budget__value--small',
+        dailyBudgetLabel: '.budget__value--large',
+        incomeBudgetLabel: '.budget__income--value',
+        expensesBudgetLabel: '.budget__expenses--value'
     };
 
     return {
@@ -215,6 +225,14 @@ var UIController = function () {
             fieldsArray[0].focus();
         },
 
+        displayBudget: function displayBudget(obj) {
+
+            document.querySelector(DOMstrings.avialableBudgetLabel).textContent = obj.budget;
+            // document.querySelector(DOMstrings.dailyBudgetLabel).textContent = obj.budget;
+            document.querySelector(DOMstrings.incomeBudgetLabel).textContent = obj.totalInc;
+            document.querySelector(DOMstrings.expensesBudgetLabel).textContent = obj.totalExp;
+        },
+
         getDOMstrings: function getDOMstrings() {
             return DOMstrings;
         }
@@ -245,7 +263,7 @@ var controller = function (budgetController, UIController) {
         var budget = budgetController.getBudget();
 
         // 3. Display the budget on the UI
-        console.log(budget);
+        UIController.displayBudget(budget);
     };
 
     var ctrlAddItem = function ctrlAddItem() {
@@ -272,6 +290,11 @@ var controller = function (budgetController, UIController) {
     return {
         init: function init() {
             console.log('Application has started.');
+            UIController.displayBudget({
+                budget: 0,
+                totalInc: 0,
+                totalExp: 0
+            });
             setupEventListeners();
         }
     };
