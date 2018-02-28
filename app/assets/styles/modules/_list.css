@@ -6,19 +6,21 @@
 }
 
 .container {
-    width: 1000px;
-    margin: 60px auto;
+    display: flex;
+    margin-top: 30px;
 }
 
 .income {
     float: left;
-    width: 475px;
+    width: 400px;
+    text-align: center;
     margin-right: 50px;
 }
 
 .expenses {
     float: left;
-    width: 475px;
+    text-align: center;
+    width: 400px;
 }
 
 h2 {
@@ -32,6 +34,8 @@ h2 {
 .expenses__title { color: $mainRed; }
 
 .item {
+    display: flex;
+    justify-content: space-between;
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
 
@@ -55,7 +59,6 @@ h2 {
 }
 
 .expenses .item__value,
-.expenses .item__percentage,
 .expenses .item__delete--btn {
     color: $mainRed;
 }
@@ -67,22 +70,15 @@ h2 {
   }
 
   &__delete--btn {
-      font-size: 22px;
+      font-size: 1.2rem;
       background: none;
       border: none;
       cursor: pointer;
       display: inline-block;
       vertical-align: middle;
+      margin-left: 20px;
       line-height: 1;
-      display: none;
   }
-
-  &__delete--btn:focus { outline: none; }
-  &__delete--btn:active { transform: translateY(2px); }
-
-  &:hover .item__delete--btn { display: block; }
-  &:hover .item__value { transform: translateX(-20px); }
-  &:hover .item__percentage { transform: translateX(-20px); }
 
 }
 

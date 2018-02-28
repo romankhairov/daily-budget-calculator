@@ -634,19 +634,23 @@ body {
 }
 
 .container {
-    width: 1000px;
-    margin: 60px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 30px;
 }
 
 .income {
     float: left;
-    width: 475px;
+    width: 400px;
+    text-align: center;
     margin-right: 50px;
 }
 
 .expenses {
     float: left;
-    width: 475px;
+    text-align: center;
+    width: 400px;
 }
 
 h2 {
@@ -661,6 +665,12 @@ h2 {
 .expenses__title { color: #f85a59; }
 
 .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
 
@@ -688,7 +698,6 @@ h2 {
 }
 
 .expenses .item__value,
-.expenses .item__percentage,
 .expenses .item__delete--btn {
     color: #f85a59;
 }
@@ -698,25 +707,15 @@ h2 {
   }
 
 .item__delete--btn {
-      font-size: 22px;
+      font-size: 1.2rem;
       background: none;
       border: none;
       cursor: pointer;
       display: inline-block;
       vertical-align: middle;
+      margin-left: 20px;
       line-height: 1;
-      display: none;
   }
-
-.item__delete--btn:focus { outline: none; }
-
-.item__delete--btn:active { -webkit-transform: translateY(2px); transform: translateY(2px); }
-
-.item:hover .item__delete--btn { display: block; }
-
-.item:hover .item__value { -webkit-transform: translateX(-20px); transform: translateX(-20px); }
-
-.item:hover .item__percentage { -webkit-transform: translateX(-20px); transform: translateX(-20px); }
 
 .unpaid {
     background-color: #FFDAD9 !important;
