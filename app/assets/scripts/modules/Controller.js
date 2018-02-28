@@ -1,1 +1,1 @@
-console.log("Hello from Controller!");
+console.log("Hello from globalModule!");

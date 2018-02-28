@@ -1,1 +1,1 @@
-console.log("Hello from BudgetController!");
+console.log("Hello from budgetModule!");

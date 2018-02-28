@@ -1,1 +1,1 @@
-console.log("Hello from UIController!");
+console.log("Hello from displayModule!");

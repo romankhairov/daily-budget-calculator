@@ -70,8 +70,8 @@
 "use strict";
 
 
-// BUDGET CONTROLLER
-var budgetController = function () {
+// BUDGET MODULE
+var budgetModule = function () {
 
     var Expense = function Expense(id, description, value) {
         this.id = id;
@@ -164,8 +164,8 @@ var budgetController = function () {
     };
 }();
 
-// UI CONTROLLER
-var UIController = function () {
+// DISPLAY MODULE
+var displayModule = function () {
 
     var DOMstrings = {
         inputType: '.add__type',
@@ -239,11 +239,11 @@ var UIController = function () {
     };
 }();
 
-// GLOBAL APP CONTROLLER
-var controller = function (budgetController, UIController) {
+// GLOBAL APP MODULE
+var globalModule = function (budgetModule, displayModule) {
 
     var setupEventListeners = function setupEventListeners() {
-        var DOM = UIController.getDOMstrings();
+        var DOM = displayModule.getDOMstrings();
 
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
@@ -257,30 +257,30 @@ var controller = function (budgetController, UIController) {
     var updateBudget = function updateBudget() {
 
         // 1. Calculate and update budget
-        budgetController.calculateBudget();
+        budgetModule.calculateBudget();
 
         // 2. Return the budget
-        var budget = budgetController.getBudget();
+        var budget = budgetModule.getBudget();
 
         // 3. Display the budget on the UI
-        UIController.displayBudget(budget);
+        displayModule.displayBudget(budget);
     };
 
     var ctrlAddItem = function ctrlAddItem() {
         var input, newItem;
 
         // 1. Get the field input data
-        input = UIController.getInput();
+        input = displayModule.getInput();
 
         if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
-            // 2. Add the item to the budget controller
-            newItem = budgetController.addItem(input.type, input.description, input.value);
+            // 2. Add the item to the budget globalModule
+            newItem = budgetModule.addItem(input.type, input.description, input.value);
 
             // 3. Add the item to the UI
-            UIController.addListItem(newItem, input.type);
+            displayModule.addListItem(newItem, input.type);
 
             // 4. Clear the fields
-            UIController.clearFields();
+            displayModule.clearFields();
 
             // 5. Calculate and update budget
             updateBudget();
@@ -290,7 +290,7 @@ var controller = function (budgetController, UIController) {
     return {
         init: function init() {
             console.log('Application has started.');
-            UIController.displayBudget({
+            displayModule.displayBudget({
                 budget: 0,
                 totalInc: 0,
                 totalExp: 0
@@ -298,9 +298,9 @@ var controller = function (budgetController, UIController) {
             setupEventListeners();
         }
     };
-}(budgetController, UIController);
+}(budgetModule, displayModule);
 
-controller.init();
+globalModule.init();
 
 /***/ })
 /******/ ]);
