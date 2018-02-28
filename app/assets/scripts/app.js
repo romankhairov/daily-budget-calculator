@@ -113,7 +113,8 @@ var displayModule = (function() {
         avialableBudgetLabel: '.budget__value--small',
         dailyBudgetLabel: '.budget__value--large',
         incomeBudgetLabel: '.budget__income--value',
-        expensesBudgetLabel: '.budget__expenses--value'
+        expensesBudgetLabel: '.budget__expenses--value',
+        container: '.container'
     };
 
     return {
@@ -132,11 +133,11 @@ var displayModule = (function() {
           if (type === 'inc') {
           element = DOMstrings.incomeContainer;
 
-          html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fas fa-minus-circle"></i></button></div></div> </div>';
+          html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fas fa-minus-circle"></i></button></div></div> </div>';
           } else if (type === 'exp') {
           element = DOMstrings.expensesContainer;
 
-          html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fas fa-minus-circle"></i></button></div></div></div>';
+          html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fas fa-minus-circle"></i></button></div></div></div>';
           }
           // Replace the placeholder text some actual data
           newHtml = html.replace('%id%', obj.id);
@@ -195,6 +196,9 @@ var globalModule = (function(budgetModule, displayModule) {
                 ctrlAddItem();
             }
         });
+
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
+
     };
 
     var updateBudget = function () {
@@ -210,12 +214,12 @@ var globalModule = (function(budgetModule, displayModule) {
     };
 
     var ctrlAddItem = function() {
-        var input, newItem;
+          var input, newItem;
 
-            // 1. Get the field input data
-            input = displayModule.getInput();
+              // 1. Get the field input data
+              input = displayModule.getInput();
 
-            if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
+              if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
               // 2. Add the item to the budget globalModule
               newItem = budgetModule.addItem(input.type, input.description, input.value);
 
@@ -228,6 +232,28 @@ var globalModule = (function(budgetModule, displayModule) {
               // 5. Calculate and update budget
               updateBudget();
             }
+
+    };
+
+    var ctrlDeleteItem = function(event) {
+      var itemID, splitID, type, ID;
+
+      itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+      if(itemID) {
+
+        // inc-1
+        splitID = itemID.split('-');
+        type = splitID[0];
+        ID = splitID[1];
+
+        // 1. Delete the item from data structure
+
+        // 2. Delete the item from the UI
+
+        // 3. Update and show the new budget
+
+      }
 
     };
 
