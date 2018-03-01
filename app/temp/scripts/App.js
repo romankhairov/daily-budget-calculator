@@ -192,7 +192,8 @@ var displayModule = function () {
         dailyBudgetLabel: '.budget__value--large',
         incomeBudgetLabel: '.budget__income--value',
         expensesBudgetLabel: '.budget__expenses--value',
-        container: '.container'
+        container: '.container',
+        dateLabel: '.budget__title--month'
     };
 
     var formatNumber = function formatNumber(num, type) {
@@ -275,14 +276,27 @@ var displayModule = function () {
 
             if (obj.budget > 0) {
                 type = 'inc';
-            } else {
+            } else if (obj.budget < 0) {
                 type = 'exp';
+            } else {
+                type = '';
             };
 
             document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
             // document.querySelector(DOMstrings.dailyBudgetLabel).textContent = obj.budget;
             document.querySelector(DOMstrings.incomeBudgetLabel).textContent = formatNumber(obj.totalInc, 'inc');
             document.querySelector(DOMstrings.expensesBudgetLabel).textContent = formatNumber(obj.totalExp, 'exp');
+        },
+
+        displayMonth: function displayMonth() {
+            var year, month, now, months;
+
+            var now = new Date();
+
+            months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            month = now.getMonth();
+            year = now.getFullYear();
+            document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ' ' + year;
         },
 
         getDOMstrings: function getDOMstrings() {
@@ -367,6 +381,7 @@ var globalModule = function (budgetModule, displayModule) {
     return {
         init: function init() {
             console.log('Application has started.');
+            displayModule.displayMonth();
             displayModule.displayBudget({
                 budget: 0,
                 totalInc: 0,
