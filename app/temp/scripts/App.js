@@ -226,6 +226,12 @@ var displayModule = function () {
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
 
+        deleteListItem: function deleteListItem(selectorID) {
+
+            var el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
+        },
+
         clearFields: function clearFields() {
             var fields, fieldsArray;
 
@@ -317,11 +323,13 @@ var globalModule = function (budgetModule, displayModule) {
             ID = parseInt(splitID[1]);
 
             // 1. Delete the item from data structure
-            budgetCtrl.deleteItem(type, ID);
+            budgetModule.deleteItem(type, ID);
 
             // 2. Delete the item from the UI
+            displayModule.deleteListItem(itemID);
 
             // 3. Update and show the new budget
+            updateBudget();
         }
     };
 
