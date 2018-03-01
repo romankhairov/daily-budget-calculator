@@ -565,7 +565,6 @@ body {
     padding: 30px;
 
 
-
 }
 
 .add__container {
@@ -625,6 +624,12 @@ body {
 }
 
 .add__btn:focus { outline: none; }
+
+.right { float: right; }
+
+.red { color: #FF5049 !important; }
+
+.red-focus:focus { border: 1px solid #FF5049 !important; }
 
 .list {
   width: 100%;

@@ -63,5 +63,8 @@
 &__btn:focus { outline: none; }
 
 
-
 }
+
+.right { float: right; }
+.red { color: #FF5049 !important; }
+.red-focus:focus { border: 1px solid #FF5049 !important; }
