@@ -22,11 +22,6 @@ var budgetModule = (function() {
       data.totals[type] = sum;
     };
 
-    // var calculateDailyBudget = function(budget) {
-    //   var daily = 0;
-    //   daily = data.budget / 30;
-    // }
-
 
     var data = {
         allItems: {
@@ -37,8 +32,10 @@ var budgetModule = (function() {
             exp: 0,
             inc: 0
         },
-        budget: 0
+        budget: 0,
+        dailyBudget: -1
     };
+
 
 
     return {
@@ -81,6 +78,7 @@ var budgetModule = (function() {
 
 
         },
+
 
           deleteItem: function(type, id) {
             var ids, index
@@ -237,6 +235,7 @@ var displayModule = (function() {
 
         },
 
+
         displayMonth: function() {
           var year, month, now, months;
 
@@ -296,7 +295,8 @@ var globalModule = (function(budgetModule, displayModule) {
 
     };
 
-    var updateBudget = function () {
+
+    var updateBudget = function() {
 
       // 1. Calculate and update budget
       budgetModule.calculateBudget();
@@ -306,6 +306,16 @@ var globalModule = (function(budgetModule, displayModule) {
 
       // 3. Display the budget on the UI
       displayModule.displayBudget(budget);
+    };
+
+    var updateDailyBudget = function() {
+
+      // 1. Calculate avialable daily money
+
+      // 2. Read daily money from budget controller
+
+      // 3. Update in display module new daily budget
+
     };
 
     var ctrlAddItem = function() {
@@ -326,6 +336,10 @@ var globalModule = (function(budgetModule, displayModule) {
 
               // 5. Calculate and update budget
               updateBudget();
+
+              // 6. Calculate and update daily budget
+              updateDailyBudget();
+
             }
 
     };
@@ -350,6 +364,10 @@ var globalModule = (function(budgetModule, displayModule) {
 
         // 3. Update and show the new budget
         updateBudget();
+
+        // 4. Update and show the new daily budget
+        updateDailyBudget();
+        
       }
 
     };
