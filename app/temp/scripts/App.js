@@ -93,12 +93,6 @@ var budgetModule = function () {
         data.totals[type] = sum;
     };
 
-    // var calculateDailyBudget = function(budget) {
-    //   var daily = 0;
-    //   daily = data.budget / 30;
-    // }
-
-
     var data = {
         allItems: {
             exp: [],
@@ -108,7 +102,8 @@ var budgetModule = function () {
             exp: 0,
             inc: 0
         },
-        budget: 0
+        budget: 0,
+        dailyBudget: -1
     };
 
     return {
@@ -278,7 +273,7 @@ var displayModule = function () {
         },
 
         displayBudget: function displayBudget(obj) {
-            var type;
+            var type, dailyBudget, days;
 
             if (obj.budget > 0) {
                 type = 'inc';
@@ -288,8 +283,12 @@ var displayModule = function () {
                 type = '';
             };
 
+            days = 31;
+
+            dailyBudget = obj.budget / days;
+
             document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
-            // document.querySelector(DOMstrings.dailyBudgetLabel).textContent = obj.budget;
+            document.querySelector(DOMstrings.dailyBudgetLabel).textContent = formatNumber(dailyBudget, type);
             document.querySelector(DOMstrings.incomeBudgetLabel).textContent = formatNumber(obj.totalInc, 'inc');
             document.querySelector(DOMstrings.expensesBudgetLabel).textContent = formatNumber(obj.totalExp, 'exp');
         },
@@ -354,6 +353,18 @@ var globalModule = function (budgetModule, displayModule) {
         displayModule.displayBudget(budget);
     };
 
+    var updateDailyBudget = function updateDailyBudget() {
+
+        // 1. Calculate avialable daily money
+        budgetModule.calculateDailyBudget();
+
+        // 2. Read daily money from budget controller
+        var dailyBudgetOutput = budgetModule.getDaily();
+
+        // 3. Update in display module new daily budget
+        console.log(dailyBudgetOutput);
+    };
+
     var ctrlAddItem = function ctrlAddItem() {
         var input, newItem;
 
@@ -372,6 +383,9 @@ var globalModule = function (budgetModule, displayModule) {
 
             // 5. Calculate and update budget
             updateBudget();
+
+            // 6. Calculate and update daily budget
+            updateDailyBudget();
         }
     };
 
@@ -395,6 +409,9 @@ var globalModule = function (budgetModule, displayModule) {
 
             // 3. Update and show the new budget
             updateBudget();
+
+            // 4. Update and show the new daily budget
+            updateDailyBudget();
         }
     };
 

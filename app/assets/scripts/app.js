@@ -80,6 +80,7 @@ var budgetModule = (function() {
         },
 
 
+
           deleteItem: function(type, id) {
             var ids, index
 
@@ -218,7 +219,7 @@ var displayModule = (function() {
         },
 
         displayBudget: function(obj) {
-          var type;
+          var type, dailyBudget, days;
 
           if (obj.budget > 0) {
             type = 'inc'
@@ -228,10 +229,15 @@ var displayModule = (function() {
             type = ''
           };
 
+          days = 31;
+
+          dailyBudget = obj.budget / days;
+
           document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
-          // document.querySelector(DOMstrings.dailyBudgetLabel).textContent = obj.budget;
+          document.querySelector(DOMstrings.dailyBudgetLabel).textContent = formatNumber(dailyBudget, type);
           document.querySelector(DOMstrings.incomeBudgetLabel).textContent = formatNumber(obj.totalInc, 'inc');
           document.querySelector(DOMstrings.expensesBudgetLabel).textContent = formatNumber(obj.totalExp, 'exp');
+
 
         },
 
@@ -311,10 +317,14 @@ var globalModule = (function(budgetModule, displayModule) {
     var updateDailyBudget = function() {
 
       // 1. Calculate avialable daily money
+      budgetModule.calculateDailyBudget();
 
       // 2. Read daily money from budget controller
+      var dailyBudgetOutput = budgetModule.getDaily();
 
       // 3. Update in display module new daily budget
+      console.log(dailyBudgetOutput);
+
 
     };
 
@@ -367,7 +377,7 @@ var globalModule = (function(budgetModule, displayModule) {
 
         // 4. Update and show the new daily budget
         updateDailyBudget();
-        
+
       }
 
     };
