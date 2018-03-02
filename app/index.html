@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,500,700' rel='stylesheet' type='text/css'>
+  <title>Daily Budget Calculator</title>
+  <meta name="keywords" content="Daily Budget Calculator, Save Your Money">
+  <meta name="description" content="Helpfull calculator to save your money">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<!-- build:css assets/styles/styles.css -->
+  <link rel="stylesheet" href="temp/styles/styles.css">
+<!-- endbuild -->
+
+</head>
+
+<body>
+
+<!-- Output -->
+
+<div class="output">
+  <div class="budget">
+    <div class="wrapper">
+      <div class="budget__title">
+          Budget in <span class="budget__title--month">%Month%</span>:
+      </div>
+      <div class="budget__value budget__value--small">0</div>
+      <div class="budget__title">
+          Daily Budget:
+      </div>
+      <div class="budget__value budget__value--large">0</div>
+      <div class="budget__income clearfix">
+          <div class="budget__income--text"><i class="fas fa-plus"></i></div>
+          <div class="right">
+              <div class="budget__income--value">0</div>
+          </div>
+      </div>
+
+      <div class="budget__expenses clearfix">
+          <div class="budget__expenses--text"><i class="fas fa-minus"></i></div>
+          <div class="right clearfix">
+              <div class="budget__expenses--value">0</div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Output End -->
+
+<!-- Input -->
+
+<div class="input">
+  <div class="wrapper">
+    <div class="add">
+        <div class="add__container">
+            <select class="add__type">
+                <option value="inc" selected>+</option>
+                <option value="exp">-</option>
+            </select>
+            <input type="text" class="add__description" placeholder="Add description">
+            <input type="number" class="add__value" placeholder="Value">
+            <button class="add__btn"><i class="fas fa-check-circle"></i></button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Input End -->
+
+<!-- List -->
+
+<div class="list">
+  <div class="wrapper">
+    <div class="container clearfix">
+        <div class="income">
+            <h2 class="icome__title">Income</h2>
+
+            <div class="income__list">
+            </div>
+        </div>
+        <div class="expenses">
+            <h2 class="expenses__title">Expenses</h2>
+
+            <div class="expenses__list">
+            </div>
+        </div>
+  </div>
+</div>
+
+<!-- List -->
+
+<!-- build:js assets/scripts/App.js -->
+<script src="temp/scripts/App.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

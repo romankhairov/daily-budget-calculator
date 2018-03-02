@@ -1,0 +1,79 @@
+.output {
+  width: 100%;
+  height: 400px;
+  background-color: $darkGrey;
+  color: $mainWhite;
+  font-weight: 300;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.budget {
+  position: absolute;
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #mainWhite;
+
+  &__title {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  &__value {
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+
+      &--small{
+        font-size: 2.1rem;
+      }
+
+      &--large{
+        font-size: 2.9rem;
+      }
+  }
+
+  &__income,
+  &__expenses {
+    margin-left: 40px;
+      width: 150px;
+      padding: 1rem;
+      text-transform: uppercase;
+  }
+
+  &__income {
+      margin-bottom: 10px;
+  }
+
+  &__expenses {
+  }
+
+  &__income--text,
+  &__expenses--text {
+      float: left;
+      font-size: 1.1rem;
+      margin-top: 2px;
+  }
+
+  &__income--text,
+  &__income--value {
+  color: $mainGreen;
+  }
+
+  &__expenses--text,
+  &__expenses--value{
+  color: $mainRed;
+  }
+
+  &__income--value,
+  &__expenses--value {
+      letter-spacing: 1px;
+      float: left;
+  }
+
+}

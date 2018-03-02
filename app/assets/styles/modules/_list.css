@@ -1,0 +1,91 @@
+.list {
+  width: 100%;
+  background-color: $mainWhite;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.container {
+    display: flex;
+    margin-top: 30px;
+}
+
+.income {
+    float: left;
+    width: 400px;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.expenses {
+    float: left;
+    text-align: center;
+    width: 400px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.icome__title { color: $mainGreen; }
+.expenses__title { color: $mainRed; }
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+
+    &:first-child { border-top: 1px solid #e7e7e7; }
+    &:nth-child(even) { background-color: #f7f7f7; }
+
+    &__description {
+        float: left;
+    }
+
+    &__value {
+        float: left;
+        transition: transform 0.3s;
+    }
+
+}
+
+.income .item__value,
+.income .item__delete--btn {
+    color: $mainGreen;
+}
+
+.expenses .item__value,
+.expenses .item__delete--btn {
+    color: $mainRed;
+}
+
+.item {
+
+  &__delete {
+      float: left;
+  }
+
+  &__delete--btn {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 20px;
+      line-height: 1;
+  }
+
+}
+
+.unpaid {
+    background-color: #FFDAD9 !important;
+    cursor: pointer;
+    color: $mainRed;
+}
+
+.unpaid:hover .item__description { font-weight: 900; }
