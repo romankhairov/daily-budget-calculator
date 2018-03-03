@@ -263,7 +263,7 @@ var displayModule = (function() {
           //   // July
           //   daysInMonth(7,2009); // 31
 
-        };
+        },
 
         changedType: function() {
 
