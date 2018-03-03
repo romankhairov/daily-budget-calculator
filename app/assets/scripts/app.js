@@ -253,6 +253,18 @@ var displayModule = (function() {
           document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ' ' +year;
         },
 
+        daysInMonth: function() {
+
+          //   // Month is 1-indexed (January is 1, February is 2, etc).
+          //   function daysInMonth (month, year) {
+          //   return new Date(year, month, 0).getDate();
+          // }
+          //
+          //   // July
+          //   daysInMonth(7,2009); // 31
+
+        };
+
         changedType: function() {
 
           var fields = document.querySelectorAll(
