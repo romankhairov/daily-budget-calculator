@@ -7,20 +7,33 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 30px;
+
+    @mixin atSmall {
+    flex-direction: row;
+    }
 }
 
 .income {
-    float: left;
-    width: 400px;
+    width: 300px;
     text-align: center;
     margin-right: 50px;
+
+    @mixin atMedium {
+    min-width: 400px
+    }
 }
 
 .expenses {
-    float: left;
     text-align: center;
-    width: 400px;
+    width: 300px;
+
+    @mixin atMedium {
+    min-width: 400px
+    }
+
 }
 
 h2 {

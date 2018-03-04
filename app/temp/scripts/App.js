@@ -365,17 +365,19 @@ var globalModule = function (budgetModule, displayModule) {
         displayModule.displayBudget(budget);
     };
 
-    var updateDailyBudget = function updateDailyBudget() {
-
-        // 1. Calculate avialable daily money
-        budgetModule.calculateDailyBudget();
-
-        // 2. Read daily money from budget controller
-        var dailyBudgetOutput = budgetModule.getDaily();
-
-        // 3. Update in display module new daily budget
-        console.log(dailyBudgetOutput);
-    };
+    // var updateDailyBudget = function() {
+    //
+    //   // 1. Calculate avialable daily money
+    //   budgetModule.calculateDailyBudget();
+    //
+    //   // 2. Read daily money from budget controller
+    //   var dailyBudgetOutput = budgetModule.getDaily();
+    //
+    //   // 3. Update in display module new daily budget
+    //   console.log(dailyBudgetOutput);
+    //
+    //
+    // };
 
     var ctrlAddItem = function ctrlAddItem() {
         var input, newItem;
@@ -397,7 +399,7 @@ var globalModule = function (budgetModule, displayModule) {
             updateBudget();
 
             // 6. Calculate and update daily budget
-            updateDailyBudget();
+            // updateDailyBudget();
         }
     };
 

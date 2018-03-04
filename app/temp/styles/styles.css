@@ -452,7 +452,7 @@ template {
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #212b40;
+  color: #273b67;
   background-color: #fef8ec;
   height: 100vh;
   font-weight: 300;
@@ -467,8 +467,8 @@ body {
 .red-focus:focus { border: 1px solid #f85a59 !important; }
 
 .wrapper {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -477,7 +477,7 @@ body {
 .output {
   width: 100%;
   height: 400px;
-  background-color: #212b40;
+  background-color: #273b67;
   color: #fef8ec;
   font-weight: 300;
   font-size: 1.2rem;
@@ -557,8 +557,8 @@ body {
 
 .input {
   width: 100%;
-  height: 115px;
-  background-color: #56637e;
+  /* height: 115px; */
+  background-color: #4a67a2;
 }
 
 .add {
@@ -570,6 +570,13 @@ body {
 .add__container {
     margin: 0 auto;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .add__type {
@@ -583,6 +590,7 @@ body {
     font-weight: 300;
     -webkit-transition: border 0.3s;
     transition: border 0.3s;
+    border-radius: 10px;
 }
 
 .add__description,
@@ -593,26 +601,38 @@ body {
     font-family: inherit;
     font-size: 14px;
     padding: 12px 15px;
-    margin-right: 10px;
+    margin-bottom: 10px;
     -webkit-transition: border 0.3s;
     transition: border 0.3s;
+    border-radius: 10px;
 }
 
-.add__description { width: 300px;}
+.add__description { width: 270px;}
 
-.add__value { width: 100px;}
+.add__value { width: 200px;}
 
 .add__btn {
-    font-size: 45px;
-    background: none;
+    padding: 10px 5px;
+    font-size: 1.5rem;
+    background-color: #24bf9f;
     border: none;
-    color: #24bf9f;
+    color: #fef8ec;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.1;
-    margin-left: 10px;
+    border-radius: 10px;
+    max-width: 300px;
+    width: 95%;
+    margin-top: .3em;
 }
+
+@media (min-width: 800px) {
+
+.add__btn {
+    width: 20%
+}
+  }
 
 .add__btn:active { -webkit-transform: translateY(2px); transform: translateY(2px); }
 
@@ -627,9 +647,10 @@ body {
 
 .right { float: right; }
 
-.red { color: #FF5049 !important; }
+.red { background-color: #f85a59 !important;
+      color: #fef8ec !important; }
 
-.red-focus:focus { border: 1px solid #FF5049 !important; }
+.red-focus:focus { border: 1px solid #f85a59 !important; }
 
 .list {
   width: 100%;
@@ -642,21 +663,52 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: 30px;
 }
 
+@media (min-width: 530px) {
+
+.container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row
+}
+  }
+
 .income {
-    float: left;
-    width: 400px;
+    width: 300px;
     text-align: center;
     margin-right: 50px;
 }
 
-.expenses {
-    float: left;
-    text-align: center;
-    width: 400px;
+@media (min-width: 800px) {
+
+.income {
+    min-width: 400px
 }
+  }
+
+.expenses {
+    text-align: center;
+    width: 300px;
+
+}
+
+@media (min-width: 800px) {
+
+.expenses {
+    min-width: 400px
+
+}
+  }
 
 h2 {
     text-transform: uppercase;

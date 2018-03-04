@@ -1,6 +1,6 @@
 .input {
   width: 100%;
-  height: 115px;
+  /* height: 115px; */
   background-color: $lightGrey;
 }
 
@@ -10,6 +10,8 @@
 &__container {
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 &__type {
@@ -22,6 +24,7 @@
     margin-right: 10px;
     font-weight: 300;
     transition: border 0.3s;
+    border-radius: 10px;
 }
 
 &__description,
@@ -32,23 +35,32 @@
     font-family: inherit;
     font-size: 14px;
     padding: 12px 15px;
-    margin-right: 10px;
+    margin-bottom: 10px;
     transition: border 0.3s;
+    border-radius: 10px;
 }
 
-&__description { width: 300px;}
-&__value { width: 100px;}
+&__description { width: 270px;}
+&__value { width: 200px;}
 
 &__btn {
-    font-size: 45px;
-    background: none;
+    padding: 10px 5px;
+    font-size: 1.5rem;
+    background-color: $mainGreen;
     border: none;
-    color: $mainGreen;
+    color: $mainWhite;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.1;
-    margin-left: 10px;
+    border-radius: 10px;
+    max-width: 300px;
+    width: 95%;
+    margin-top: .3em;
+
+    @mixin atMedium {
+    width: 20%;
+    }
 }
 
 &__btn:active { transform: translateY(2px); }
@@ -66,5 +78,6 @@
 }
 
 .right { float: right; }
-.red { color: #FF5049 !important; }
-.red-focus:focus { border: 1px solid #FF5049 !important; }
+.red { background-color: $mainRed !important;
+      color: $mainWhite !important; }
+.red-focus:focus { border: 1px solid $mainRed !important; }
