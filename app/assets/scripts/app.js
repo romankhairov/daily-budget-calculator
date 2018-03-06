@@ -22,7 +22,6 @@ var budgetModule = (function() {
       data.totals[type] = sum;
     };
 
-
     var data = {
         allItems: {
             exp: [],
@@ -36,7 +35,15 @@ var budgetModule = (function() {
         dailyBudget: -1
     };
 
+      var daysAmount = function(month, year) {
+        var month, year;
 
+        month = now.getMonth();
+        year = now.getFullYear();
+
+      return new Date(year, month, 0).getDate();
+      console.log(Date);
+    };
 
     return {
         addItem: function(type, des, val) {
@@ -80,7 +87,6 @@ var budgetModule = (function() {
         },
 
 
-
           deleteItem: function(type, id) {
             var ids, index
 
@@ -104,9 +110,11 @@ var budgetModule = (function() {
               };
             },
 
-        testing: function() {
-          console.log(data);
-        }
+          getDaysInMonth: function(daysAmount) {
+            var days = daysAmount;
+
+          }
+
     };
 
 })();
@@ -218,6 +226,7 @@ var displayModule = (function() {
 
         },
 
+
         displayBudget: function(obj) {
           var type, dailyBudget, days;
 
@@ -229,6 +238,7 @@ var displayModule = (function() {
             type = ''
           };
 
+          // days = budgetModule.getDaysInMonth();
           days = 31;
 
           dailyBudget = obj.budget / days;
@@ -253,17 +263,7 @@ var displayModule = (function() {
           document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ' ' +year;
         },
 
-        daysInMonth: function() {
 
-          //   // Month is 1-indexed (January is 1, February is 2, etc).
-          //   function daysInMonth (month, year) {
-          //   return new Date(year, month, 0).getDate();
-          // }
-          //
-          //   // July
-          //   daysInMonth(7,2009); // 31
-
-        },
 
         changedType: function() {
 
@@ -397,6 +397,7 @@ var globalModule = (function(budgetModule, displayModule) {
     return {
         init: function() {
             console.log('Application has started.');
+            console.log(budgetModule.getDaysInMonth());
             displayModule.displayMonth();
             displayModule.displayBudget({
                 budget: 0,
