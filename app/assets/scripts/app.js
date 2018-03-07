@@ -35,15 +35,17 @@ var budgetModule = (function() {
         dailyBudget: -1
     };
 
-      var daysAmount = function(month, year) {
+    var daysAmount = function(month, year) {
         var month, year;
-
+        var now = new Date();
         month = now.getMonth();
         year = now.getFullYear();
 
-      return new Date(year, month, 0).getDate();
-      console.log(Date);
+        return new Date(year, month, 0).getDate();
     };
+
+      // test of function
+      console.log(daysAmount());
 
     return {
         addItem: function(type, des, val) {
@@ -111,8 +113,8 @@ var budgetModule = (function() {
             },
 
           getDaysInMonth: function(daysAmount) {
+            // return number of days in actual month
             var days = daysAmount;
-
           }
 
     };

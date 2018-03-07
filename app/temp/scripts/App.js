@@ -108,13 +108,15 @@ var budgetModule = function () {
 
     var daysAmount = function daysAmount(month, year) {
         var month, year;
-
+        var now = new Date();
         month = now.getMonth();
         year = now.getFullYear();
 
         return new Date(year, month, 0).getDate();
-        console.log(Date);
     };
+
+    // test of function
+    console.log(daysAmount());
 
     return {
         addItem: function addItem(type, des, val) {
@@ -178,6 +180,7 @@ var budgetModule = function () {
         },
 
         getDaysInMonth: function getDaysInMonth(daysAmount) {
+            // return number of days in actual month
             var days = daysAmount;
         }
 
