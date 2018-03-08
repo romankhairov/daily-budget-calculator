@@ -40,7 +40,7 @@ var budgetModule = (function() {
     var daysAmount = function(month, year) {
         var month, year;
         var now = new Date();
-        month = now.getMonth();
+        month = now.getMonth() + 1;
         year = now.getFullYear();
 
         return new Date(year, month, 0).getDate();
@@ -59,8 +59,6 @@ var budgetModule = (function() {
 
 // Return to make the functions visible outside the scope. (Closures)
     return {
-
-
 
         addItem: function(type, des, val) {
             var newItem, ID;
@@ -128,10 +126,10 @@ var budgetModule = (function() {
             return daysAmount();
           },
 
-          getDailyBudget: function() {
-
-            return dailyBudget();
-          }
+          // getDailyBudget: function() {
+          //
+          //   return dailyBudget();
+          // }
 
     };
 
@@ -193,6 +191,7 @@ var displayModule = (function() {
     };
 
 
+
     return {
         getInput: function() {
             return {
@@ -201,6 +200,7 @@ var displayModule = (function() {
                 value: parseFloat(document.querySelector(DOMstrings.inputValue).value)
             };
         },
+
 
         addListItem: function(obj, type) {
           var html, newHtml, element;
@@ -259,10 +259,11 @@ var displayModule = (function() {
             type = ''
           };
 
-          // days = budgetModule.getDaysInMonth();
-          days = 31;
+          days = budgetModule.getDaysInMonth();
+          // days = 31;
 
           dailyBudget = obj.budget / days;
+          console.log(dailyBudget + " " + days);
 
           document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
           document.querySelector(DOMstrings.dailyBudgetLabel).textContent = formatNumber(dailyBudget, type);
@@ -420,7 +421,6 @@ var globalModule = (function(budgetModule, displayModule) {
     return {
         init: function() {
             console.log('Application has started.');
-            console.log(budgetModule.getDaysInMonth());
             displayModule.displayMonth();
             displayModule.displayBudget({
                 budget: 0,

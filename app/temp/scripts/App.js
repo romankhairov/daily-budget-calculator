@@ -111,7 +111,7 @@ var budgetModule = function () {
     var daysAmount = function daysAmount(month, year) {
         var month, year;
         var now = new Date();
-        month = now.getMonth();
+        month = now.getMonth() + 1;
         year = now.getFullYear();
 
         return new Date(year, month, 0).getDate();
@@ -189,12 +189,12 @@ var budgetModule = function () {
         getDaysInMonth: function getDaysInMonth() {
             // return number of days in actual month
             return daysAmount();
-        },
-
-        getDailyBudget: function getDailyBudget() {
-
-            return dailyBudget();
         }
+
+        // getDailyBudget: function() {
+        //
+        //   return dailyBudget();
+        // }
 
     };
 }();
@@ -314,10 +314,11 @@ var displayModule = function () {
                 type = '';
             };
 
-            // days = budgetModule.getDaysInMonth();
-            days = 31;
+            days = budgetModule.getDaysInMonth();
+            // days = 31;
 
             dailyBudget = obj.budget / days;
+            console.log(dailyBudget + " " + days);
 
             document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
             document.querySelector(DOMstrings.dailyBudgetLabel).textContent = formatNumber(dailyBudget, type);
@@ -454,7 +455,6 @@ var globalModule = function (budgetModule, displayModule) {
     return {
         init: function init() {
             console.log('Application has started.');
-            console.log(budgetModule.getDaysInMonth());
             displayModule.displayMonth();
             displayModule.displayBudget({
                 budget: 0,
