@@ -22,8 +22,11 @@ var budgetModule = (function() {
       data.totals[type] = sum;
     };
 
+    // Make object, because it fits best to store different types of data
+
     var data = {
         allItems: {
+          // arrays at AllItem to store, easy add and delete data
             exp: [],
             inc: []
         },
@@ -31,8 +34,7 @@ var budgetModule = (function() {
             exp: 0,
             inc: 0
         },
-        budget: 0,
-        dailyBudget: -1
+        budget: 0
     };
 
     var daysAmount = function(month, year) {
@@ -44,18 +46,27 @@ var budgetModule = (function() {
         return new Date(year, month, 0).getDate();
     };
 
-      // test of function
-      console.log(daysAmount());
+    var dailyBudget = function(days, totalBudget) {
+      var days, totalBudget, daily
 
+      days = budgetModule.getDaysInMonth();
+      totalBudget = budgetModule.calculateBudget();
+
+      daily = totalBudget / days;
+      return;
+    }
+
+
+// Return to make the functions visible outside the scope. (Closures)
     return {
+
+
+
         addItem: function(type, des, val) {
             var newItem, ID;
 
-            //[1 2 3 4 5], next ID = 6
-            //[1 2 4 6 8], next ID = 9
-            // ID = last ID + 1
 
-            // Create new ID
+            // Create new ID to store in array
             if (data.allItems[type].length > 0) {
                 ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
             } else {
@@ -112,16 +123,23 @@ var budgetModule = (function() {
               };
             },
 
-          getDaysInMonth: function(daysAmount) {
+          getDaysInMonth: function() {
             // return number of days in actual month
-            var days = daysAmount;
+            return daysAmount();
+          },
+
+          getDailyBudget: function() {
+
+            return dailyBudget();
           }
 
     };
 
 })();
 
-
+// console.log(budgetModule.getDailyBudget());
+// console.log('budgetModule.getDailyBudget()');
+// console.log(displayModule.getDaysInMonth);
 
 
 // DISPLAY MODULE
@@ -173,6 +191,7 @@ var displayModule = (function() {
         callback(list[i], i);
       }
     };
+
 
     return {
         getInput: function() {
@@ -263,9 +282,11 @@ var displayModule = (function() {
           month = now.getMonth();
           year = now.getFullYear();
           document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ' ' +year;
+
+          return new Date(year, month, 0).getDate();
+
+
         },
-
-
 
         changedType: function() {
 
