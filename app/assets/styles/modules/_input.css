@@ -12,23 +12,28 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+
+    &-row{
+
+    }
 }
 
 &__type {
-    width: 55px;
+    width: 150px;
     border: 1px solid #e7e7e7;
     height: 44px;
-    font-size: 18px;
+    font-size: 14px;
     color: inherit;
     background-color: $mainWhite;
-    margin-right: 10px;
     font-weight: 300;
     transition: border 0.3s;
     border-radius: 10px;
+
 }
 
 &__description,
 &__value {
+    width: 270px;
     border: 1px solid #e7e7e7;
     background-color: $mainWhite;
     color: inherit;
@@ -38,10 +43,13 @@
     margin-bottom: 10px;
     transition: border 0.3s;
     border-radius: 10px;
+    /* display: flex; */
+    /* align-content: stretch; */
+
 }
 
-&__description { width: 270px;}
-&__value { width: 200px;}
+/* &__description { width: 270px;}
+&__value { width: 200px;} */
 
 &__btn {
     padding: 10px 5px;
@@ -54,12 +62,10 @@
     vertical-align: middle;
     line-height: 1.1;
     border-radius: 10px;
-    max-width: 300px;
-    width: 95%;
-    margin-top: .3em;
+    width: 300px;
 
     @mixin atMedium {
-    width: 20%;
+    width: 150px;
     }
 }
 
