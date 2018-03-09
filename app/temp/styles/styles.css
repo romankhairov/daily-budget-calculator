@@ -768,16 +768,8 @@ h2 {
       background: none;
       border: none;
       cursor: pointer;
-      display: inline-block;
+      /* display: inline-block; */
       vertical-align: middle;
       margin-left: 20px;
       line-height: 1;
   }
-
-.unpaid {
-    background-color: #FFDAD9 !important;
-    cursor: pointer;
-    color: #f85a59;
-}
-
-.unpaid:hover .item__description { font-weight: 900; }

@@ -1,4 +1,4 @@
-// BUDGET MODULE
+// BUDGET MODULE---------------------------------------------------------------------------------------------------------------
 var budgetModule = (function() {
 
     var Expense = function(id, description, value) {
@@ -140,7 +140,7 @@ var budgetModule = (function() {
 // console.log(displayModule.getDaysInMonth);
 
 
-// DISPLAY MODULE
+// DISPLAY MODULE---------------------------------------------------------------------------------------------------------------
 var displayModule = (function() {
 
     var DOMstrings = {
@@ -210,6 +210,7 @@ var displayModule = (function() {
           element = DOMstrings.incomeContainer;
 
           html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fas fa-minus-circle"></i></button></div></div> </div>';
+          // html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn">delete</button></div></div> </div>';
           } else if (type === 'exp') {
           element = DOMstrings.expensesContainer;
 
@@ -317,7 +318,7 @@ var displayModule = (function() {
 
 
 
-// GLOBAL APP MODULE
+// GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
 var globalModule = (function(budgetModule, displayModule) {
 
     var setupEventListeners = function() {
@@ -383,18 +384,19 @@ var globalModule = (function(budgetModule, displayModule) {
               // 5. Calculate and update budget
               updateBudget();
 
-              // 6. Calculate and update daily budget
-              // updateDailyBudget();
-
             }
 
     };
 
     var ctrlDeleteItem = function(event) {
+      console.log(event.target);
       var itemID, splitID, type, ID;
 
-      itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
-
+        event = event.target; // 'event.target' returns where the event fired
+        while(!event.getAttribute('id')) {
+            event = event.parentNode; // with 'parentNode' you traverse up the DOM
+        }
+        itemID = event.id;
       if(itemID) {
 
         // inc-1
@@ -411,8 +413,6 @@ var globalModule = (function(budgetModule, displayModule) {
         // 3. Update and show the new budget
         updateBudget();
 
-        // 4. Update and show the new daily budget
-        updateDailyBudget();
 
       }
 
