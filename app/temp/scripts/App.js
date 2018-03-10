@@ -70,7 +70,8 @@
 "use strict";
 
 
-// BUDGET MODULE---------------------------------------------------------------------------------------------------------------
+// ------------------BUDGET MODULE---------------------------------------------------------------------------------------------------------------
+
 var budgetModule = function () {
 
     var Expense = function Expense(id, description, value) {
@@ -131,7 +132,8 @@ var budgetModule = function () {
     return {
 
         addItem: function addItem(type, des, val) {
-            var newItem, ID;
+            var newItem = void 0,
+                ID = void 0;
 
             // Create new ID to store in array
             if (data.allItems[type].length > 0) {
@@ -165,7 +167,8 @@ var budgetModule = function () {
         },
 
         deleteItem: function deleteItem(type, id) {
-            var ids, index;
+            var ids = void 0,
+                index = void 0;
 
             ids = data.allItems[type].map(function (current) {
                 return current.id;
@@ -204,7 +207,11 @@ var budgetModule = function () {
 // console.log(displayModule.getDaysInMonth);
 
 
-// DISPLAY MODULE---------------------------------------------------------------------------------------------------------------
+// ------------------BUDGET MODULE END---------------------------------------------------------------------------------------------------------------
+
+
+// ------------------DISPLAY MODULE---------------------------------------------------------------------------------------------------------------
+
 var displayModule = function () {
 
     var DOMstrings = {
@@ -223,7 +230,10 @@ var displayModule = function () {
     };
 
     var formatNumber = function formatNumber(num, type) {
-        var numSplit, int, dec, sign;
+        var numSplit = void 0,
+            int = void 0,
+            dec = void 0,
+            sign = void 0;
 
         num = Math.abs(num);
         num = num.toFixed(2);
@@ -262,7 +272,9 @@ var displayModule = function () {
         },
 
         addListItem: function addListItem(obj, type) {
-            var html, newHtml, element;
+            var html = void 0,
+                newHtml = void 0,
+                element = void 0;
             // Create HTML string with placeholder text
 
             if (type === 'inc') {
@@ -291,7 +303,8 @@ var displayModule = function () {
         },
 
         clearFields: function clearFields() {
-            var fields, fieldsArray;
+            var fields = void 0,
+                fieldsArray = void 0;
 
             fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
 
@@ -305,7 +318,9 @@ var displayModule = function () {
         },
 
         displayBudget: function displayBudget(obj) {
-            var type, dailyBudget, days;
+            var type = void 0,
+                dailyBudget = void 0,
+                days = void 0;
 
             if (obj.budget > 0) {
                 type = 'inc';
@@ -358,7 +373,11 @@ var displayModule = function () {
     };
 }();
 
-// GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
+// ------------------DISPLAY MODULE END---------------------------------------------------------------------------------------------------------------
+
+
+// ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
+
 var globalModule = function (budgetModule, displayModule) {
 
     var setupEventListeners = function setupEventListeners() {
@@ -404,7 +423,8 @@ var globalModule = function (budgetModule, displayModule) {
     // };
 
     var ctrlAddItem = function ctrlAddItem() {
-        var input, newItem;
+        var input = void 0,
+            newItem = void 0;
 
         // 1. Get the field input data
         input = displayModule.getInput();
@@ -426,7 +446,10 @@ var globalModule = function (budgetModule, displayModule) {
 
     var ctrlDeleteItem = function ctrlDeleteItem(event) {
         console.log(event.target);
-        var itemID, splitID, type, ID;
+        var itemID = void 0,
+            splitID = void 0,
+            type = void 0,
+            ID = void 0;
 
         event = event.target; // 'event.target' returns where the event fired
         while (!event.getAttribute('id')) {
@@ -466,6 +489,8 @@ var globalModule = function (budgetModule, displayModule) {
 }(budgetModule, displayModule);
 
 globalModule.init();
+
+// ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
 
 /***/ })
 /******/ ]);

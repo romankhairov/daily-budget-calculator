@@ -1,21 +1,22 @@
-// BUDGET MODULE---------------------------------------------------------------------------------------------------------------
-var budgetModule = (function() {
+// ------------------BUDGET MODULE---------------------------------------------------------------------------------------------------------------
 
-    var Expense = function(id, description, value) {
+const budgetModule = (function() {
+
+    const Expense = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
     };
 
 
-    var Income = function(id, description, value) {
+    const Income = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
     };
 
-    var calculateTotal = function(type) {
-      var sum = 0;
+    const calculateTotal = function(type) {
+      let sum = 0;
       data.allItems[type].forEach(function(current) {
         sum = sum + current.value;
       });
@@ -24,7 +25,7 @@ var budgetModule = (function() {
 
     // Make object, because it fits best to store different types of data
 
-    var data = {
+    let data = {
         allItems: {
           // arrays at AllItem to store, easy add and delete data
             exp: [],
@@ -37,7 +38,7 @@ var budgetModule = (function() {
         budget: 0
     };
 
-    var daysAmount = function(month, year) {
+    const daysAmount = function(month, year) {
         var month, year;
         var now = new Date();
         month = now.getMonth() + 1;
@@ -46,7 +47,7 @@ var budgetModule = (function() {
         return new Date(year, month, 0).getDate();
     };
 
-    var dailyBudget = function(days, totalBudget) {
+    const dailyBudget = function(days, totalBudget) {
       var days, totalBudget, daily
 
       days = budgetModule.getDaysInMonth();
@@ -61,7 +62,7 @@ var budgetModule = (function() {
     return {
 
         addItem: function(type, des, val) {
-            var newItem, ID;
+            let newItem, ID;
 
 
             // Create new ID to store in array
@@ -99,7 +100,7 @@ var budgetModule = (function() {
 
 
           deleteItem: function(type, id) {
-            var ids, index
+            let ids, index
 
             ids = data.allItems[type].map(function(current) {
               return current.id;
@@ -140,10 +141,15 @@ var budgetModule = (function() {
 // console.log(displayModule.getDaysInMonth);
 
 
-// DISPLAY MODULE---------------------------------------------------------------------------------------------------------------
-var displayModule = (function() {
+// ------------------BUDGET MODULE END---------------------------------------------------------------------------------------------------------------
 
-    var DOMstrings = {
+
+
+// ------------------DISPLAY MODULE---------------------------------------------------------------------------------------------------------------
+
+const displayModule = (function() {
+
+    const DOMstrings = {
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
@@ -158,8 +164,8 @@ var displayModule = (function() {
         dateLabel: '.budget__title--month'
     };
 
-      var formatNumber = function(num, type) {
-      var numSplit, int, dec, sign;
+      const formatNumber = function(num, type) {
+      let numSplit, int, dec, sign;
 
       num = Math.abs(num);
       num = num.toFixed(2);
@@ -184,8 +190,8 @@ var displayModule = (function() {
 
     };
 
-    var nodeListForEach = function(list, callback) {
-      for (var i = 0; i < list.length; i++) {
+    const nodeListForEach = function(list, callback) {
+      for (let i = 0; i < list.length; i++) {
         callback(list[i], i);
       }
     };
@@ -203,7 +209,7 @@ var displayModule = (function() {
 
 
         addListItem: function(obj, type) {
-          var html, newHtml, element;
+          let html, newHtml, element;
           // Create HTML string with placeholder text
 
           if (type === 'inc') {
@@ -227,14 +233,14 @@ var displayModule = (function() {
 
         deleteListItem: function(selectorID) {
 
-          var el = document.getElementById(selectorID);
+          let el = document.getElementById(selectorID);
           el.parentNode.removeChild(el);
 
 
         },
 
         clearFields: function() {
-          var fields, fieldsArray;
+          let fields, fieldsArray;
 
           fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMstrings.inputValue);
 
@@ -250,7 +256,7 @@ var displayModule = (function() {
 
 
         displayBudget: function(obj) {
-          var type, dailyBudget, days;
+          let type, dailyBudget, days;
 
           if (obj.budget > 0) {
             type = 'inc'
@@ -292,7 +298,7 @@ var displayModule = (function() {
 
         changedType: function() {
 
-          var fields = document.querySelectorAll(
+          let fields = document.querySelectorAll(
             DOMstrings.inputType + ',' +
             DOMstrings.inputDescription + ',' +
             DOMstrings.inputValue);
@@ -315,14 +321,19 @@ var displayModule = (function() {
 
 })();
 
+// ------------------DISPLAY MODULE END---------------------------------------------------------------------------------------------------------------
 
 
 
-// GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
-var globalModule = (function(budgetModule, displayModule) {
 
-    var setupEventListeners = function() {
-        var DOM = displayModule.getDOMstrings();
+
+
+// ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
+
+const globalModule = (function(budgetModule, displayModule) {
+
+    const setupEventListeners = function() {
+        let DOM = displayModule.getDOMstrings();
 
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
 
@@ -339,13 +350,13 @@ var globalModule = (function(budgetModule, displayModule) {
     };
 
 
-    var updateBudget = function() {
+    const updateBudget = function() {
 
       // 1. Calculate and update budget
       budgetModule.calculateBudget();
 
       // 2. Return the budget
-      var budget = budgetModule.getBudget();
+      let budget = budgetModule.getBudget();
 
       // 3. Display the budget on the UI
       displayModule.displayBudget(budget);
@@ -365,8 +376,8 @@ var globalModule = (function(budgetModule, displayModule) {
     //
     // };
 
-    var ctrlAddItem = function() {
-          var input, newItem;
+    const ctrlAddItem = function() {
+          let input, newItem;
 
               // 1. Get the field input data
               input = displayModule.getInput();
@@ -388,9 +399,9 @@ var globalModule = (function(budgetModule, displayModule) {
 
     };
 
-    var ctrlDeleteItem = function(event) {
+    const ctrlDeleteItem = function(event) {
       console.log(event.target);
-      var itemID, splitID, type, ID;
+      let itemID, splitID, type, ID;
 
         event = event.target; // 'event.target' returns where the event fired
         while(!event.getAttribute('id')) {
@@ -435,3 +446,5 @@ var globalModule = (function(budgetModule, displayModule) {
 
 
 globalModule.init();
+
+// ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
