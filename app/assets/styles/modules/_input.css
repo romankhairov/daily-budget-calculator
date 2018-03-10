@@ -12,36 +12,52 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+
+    &-row{
+
+    }
 }
 
 &__type {
-    width: 55px;
+    width: 230px;
     border: 1px solid #e7e7e7;
     height: 44px;
-    font-size: 18px;
+    font-size: 14px;
     color: inherit;
     background-color: $mainWhite;
-    margin-right: 10px;
     font-weight: 300;
     transition: border 0.3s;
     border-radius: 10px;
+
+    @mixin atSmall {
+    width: 140px;
+    }
+
 }
 
 &__description,
 &__value {
+    width: 200px;
     border: 1px solid #e7e7e7;
     background-color: $mainWhite;
     color: inherit;
     font-family: inherit;
     font-size: 14px;
     padding: 12px 15px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transition: border 0.3s;
     border-radius: 10px;
+
+    @mixin atSmall {
+    width: 270px;
+    }
+    /* display: flex; */
+    /* align-content: stretch; */
+
 }
 
-&__description { width: 270px;}
-&__value { width: 200px;}
+/* &__description { width: 270px;}
+&__value { width: 200px;} */
 
 &__btn {
     padding: 10px 5px;
@@ -54,12 +70,14 @@
     vertical-align: middle;
     line-height: 1.1;
     border-radius: 10px;
-    max-width: 300px;
-    width: 95%;
-    margin-top: .3em;
+    width: 230px;
+    margin-left: 0;
+    margin-top: 20px;
 
-    @mixin atMedium {
-    width: 20%;
+    @mixin atSmall {
+    width: 140px;
+    margin-left: 16px;
+    margin-top: 0;
     }
 }
 
