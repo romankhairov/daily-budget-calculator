@@ -453,7 +453,7 @@ template {
 body {
   font-family: 'Roboto', sans-serif;
   color: #273b67;
-  background-color: #fef8ec;
+  background-color: #fffcf5;
   height: 100vh;
   font-weight: 300;
   position: relative;
@@ -478,7 +478,7 @@ body {
   width: 100%;
   height: 400px;
   background-color: #273b67;
-  color: #fef8ec;
+  color: #fffcf5;
   font-weight: 300;
   font-size: 1.2rem;
   position: relative;
@@ -584,12 +584,12 @@ body {
     }
 
 .add__type {
-    width: 150px;
+    width: 230px;
     border: 1px solid #e7e7e7;
     height: 44px;
     font-size: 14px;
     color: inherit;
-    background-color: #fef8ec;
+    background-color: #fffcf5;
     font-weight: 300;
     -webkit-transition: border 0.3s;
     transition: border 0.3s;
@@ -597,16 +597,24 @@ body {
 
 }
 
+@media (min-width: 530px) {
+
+.add__type {
+    width: 140px
+
+}
+  }
+
 .add__description,
 .add__value {
-    width: 270px;
+    width: 200px;
     border: 1px solid #e7e7e7;
-    background-color: #fef8ec;
+    background-color: #fffcf5;
     color: inherit;
     font-family: inherit;
     font-size: 14px;
     padding: 12px 15px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     -webkit-transition: border 0.3s;
     transition: border 0.3s;
     border-radius: 10px;
@@ -614,6 +622,15 @@ body {
     /* align-content: stretch; */
 
 }
+
+@media (min-width: 530px) {
+
+.add__description,
+.add__value {
+    width: 270px
+
+}
+  }
 
 /* &__description { width: 270px;}
 &__value { width: 200px;} */
@@ -623,19 +640,23 @@ body {
     font-size: 1.5rem;
     background-color: #24bf9f;
     border: none;
-    color: #fef8ec;
+    color: #fffcf5;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.1;
     border-radius: 10px;
-    width: 300px;
+    width: 230px;
+    margin-left: 0;
+    margin-top: 20px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 530px) {
 
 .add__btn {
-    width: 150px
+    width: 140px;
+    margin-left: 16px;
+    margin-top: 0
 }
   }
 
@@ -653,13 +674,13 @@ body {
 .right { float: right; }
 
 .red { background-color: #f85a59 !important;
-      color: #fef8ec !important; }
+      color: #fffcf5 !important; }
 
 .red-focus:focus { border: 1px solid #f85a59 !important; }
 
 .list {
   width: 100%;
-  background-color: #fef8ec;
+  background-color: #fffcf5;
   font-weight: 300;
   font-size: 1.2rem;
 }
