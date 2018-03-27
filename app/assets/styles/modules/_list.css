@@ -1,3 +1,26 @@
+.accordion {
+    background-color: $mainGreen;
+    color: $mainWhite;
+    cursor: pointer;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1.5rem;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    color: $mainGreen;
+    background-color: #ccc;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+}
+
 .list {
   width: 100%;
   background-color: $mainWhite;

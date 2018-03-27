@@ -70,6 +70,26 @@
 "use strict";
 
 
+// -----------------DOM MODIFICATION MODULE---------------------------------------------------------------------------------------------------------------
+
+// expand sections
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+
+// -----------------DOM MODIFICATION MODULE END---------------------------------------------------------------------------------------------------------------
+
 // ------------------BUDGET MODULE---------------------------------------------------------------------------------------------------------------
 
 var budgetModule = function () {
@@ -257,8 +277,8 @@ var displayModule = function () {
     };
 
     var nodeListForEach = function nodeListForEach(list, callback) {
-        for (var i = 0; i < list.length; i++) {
-            callback(list[i], i);
+        for (var _i = 0; _i < list.length; _i++) {
+            callback(list[_i], _i);
         }
     };
 

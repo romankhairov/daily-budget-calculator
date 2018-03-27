@@ -678,6 +678,30 @@ body {
 
 .red-focus:focus { border: 1px solid #f85a59 !important; }
 
+.accordion {
+    background-color: #24bf9f;
+    color: #fffcf5;
+    cursor: pointer;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1.5rem;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    color: #24bf9f;
+    background-color: #ccc;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+}
+
 .list {
   width: 100%;
   background-color: #fffcf5;
