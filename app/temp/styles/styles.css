@@ -691,6 +691,7 @@ body {
     font-size: 1.5rem;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+    border-bottom: 1px solid #273b67;
 }
 
 .active, .accordion:hover {
