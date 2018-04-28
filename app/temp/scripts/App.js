@@ -247,7 +247,8 @@ var displayModule = function () {
         incomeBudgetLabel: '.budget__income--value',
         expensesBudgetLabel: '.budget__expenses--value',
         container: '.container',
-        dateLabel: '.budget__title--month'
+        dateLabel: '.budget__title--month',
+        calItemContainer: '.calendar__item'
     };
 
     var formatNumber = function formatNumber(num, type) {
@@ -274,7 +275,7 @@ var displayModule = function () {
         //   sign = '+'
         // };
 
-        return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
+        return (type === 'exp' ? '-' : '') + ' ' + int + '.' + dec;
     };
 
     var nodeListForEach = function nodeListForEach(list, callback) {
@@ -315,6 +316,20 @@ var displayModule = function () {
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+        },
+
+        addCalendarItem: function addCalendarItem() {
+            var html = void 0,
+                newHtml = void 0,
+                element = void 0;
+            // Create HTML string with item placeholder text
+
+            calElement = DOMstrings.calItemContainer;
+
+            // Replace the placeholder text some actual data
+
+
+            // Insert the HTML into the DOM
         },
 
         deleteListItem: function deleteListItem(selectorID) {
@@ -394,12 +409,6 @@ var displayModule = function () {
 }();
 
 // ------------------DISPLAY MODULE END---------------------------------------------------------------------------------------------------------------
-
-
-// ------------------CALENDAR MODULE---------------------------------------------------------------------------------------------------------------
-
-
-// ------------------CALENDAR MODULE END---------------------------------------------------------------------------------------------------------------
 
 
 // ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
