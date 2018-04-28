@@ -18,6 +18,7 @@ for (i = 0; i < acc.length; i++) {
 
 // -----------------DOM MODIFICATION MODULE END---------------------------------------------------------------------------------------------------------------
 
+
 // ------------------BUDGET MODULE---------------------------------------------------------------------------------------------------------------
 
 const budgetModule = (function() {
@@ -254,17 +255,19 @@ const displayModule = (function() {
         },
 
         addCalendarItem: function() {
-          let html, newHtml, element;
+          let html, newHtml, calElement;
           // Create HTML string with item placeholder text
 
           calElement = DOMstrings.calItemContainer;
 
+          html = '<div class="calItem clearfix" id="cal-item-0"><div class="calItem__date">01</div><div class="right clearfix"><div class="calItem__value">+ 20.00</div></div></div>';
 
           // Replace the placeholder text some actual data
-
+          newHtml = html.replace('%id%', "date test");
+          newHtml = newHtml.replace('%value%', "01 test");
 
           // Insert the HTML into the DOM
-
+          document.querySelector(calElement).insertAdjacentHTML('beforeend', newHtml);
         },
 
         deleteListItem: function(selectorID) {
@@ -393,19 +396,16 @@ const globalModule = (function(budgetModule, displayModule) {
       displayModule.displayBudget(budget);
     };
 
-    // var updateDailyBudget = function() {
-    //
-    //   // 1. Calculate avialable daily money
-    //   budgetModule.calculateDailyBudget();
-    //
-    //   // 2. Read daily money from budget controller
-    //   var dailyBudgetOutput = budgetModule.getDaily();
-    //
-    //   // 3. Update in display module new daily budget
-    //   console.log(dailyBudgetOutput);
-    //
-    //
-    // };
+    const updateCalendar = function() {
+
+      // 1. Calculate and update items in calendar
+
+      // 2. Return the items
+
+      // 3. Display the budget on the UI
+      displayModule.displayCalendar(budget);
+    };
+
 
     const ctrlAddItem = function() {
           let input, newItem;
@@ -470,7 +470,7 @@ const globalModule = (function(budgetModule, displayModule) {
               // 3. Add the calendar item to the UI
 
               // 4. Calculate and update calendar budget
-
+          updateCalendar();
     };
 
     return {
