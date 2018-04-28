@@ -74,6 +74,7 @@ const budgetModule = (function() {
       totalBudget = budgetModule.calculateBudget();
 
       daily = totalBudget / days;
+      alert(daily);
       return;
     }
 
@@ -291,7 +292,6 @@ const displayModule = (function() {
 
           dailyBudget = obj.budget / days;
           console.log(dailyBudget + " " + days);
-
           document.querySelector(DOMstrings.avialableBudgetLabel).textContent = formatNumber(obj.budget, type);
           document.querySelector(DOMstrings.dailyBudgetLabel).textContent = formatNumber(dailyBudget, type);
           document.querySelector(DOMstrings.incomeBudgetLabel).textContent = formatNumber(obj.totalInc, 'inc');
@@ -344,7 +344,11 @@ const displayModule = (function() {
 // ------------------DISPLAY MODULE END---------------------------------------------------------------------------------------------------------------
 
 
+// ------------------CALENDAR MODULE---------------------------------------------------------------------------------------------------------------
 
+
+
+// ------------------CALENDAR MODULE END---------------------------------------------------------------------------------------------------------------
 
 
 
@@ -449,6 +453,19 @@ const globalModule = (function(budgetModule, displayModule) {
 
     };
 
+    const ctrlAddCalendarItem = function() {
+          let monthly, newCalendarItem;
+
+              // 1. Get the monthly budget
+
+              // 2. Add the calendar item to the budget globalModule
+
+              // 3. Add the calendar item to the UI
+
+              // 4. Calculate and update calendar budget
+
+    };
+
     return {
         init: function() {
             console.log('Application has started.');
@@ -468,11 +485,3 @@ const globalModule = (function(budgetModule, displayModule) {
 globalModule.init();
 
 // ------------------GLOBAL APP MODULE---------------------------------------------------------------------------------------------------------------
-
-// ------------------CALENDAR MODULE---------------------------------------------------------------------------------------------------------------
-
-// 1. Get amount of days in current month
-
-// 2. Calculate for 
-
-// ------------------CALENDAR MODULE---------------------------------------------------------------------------------------------------------------
